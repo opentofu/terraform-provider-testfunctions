@@ -5,7 +5,6 @@ This repository is a Terraform provider for testing purposes. It is not intended
 ## Requirements
 
 - [Terraform](https://developer.hashicorp.com/terraform/downloads) >= 1.8
-- [OpenTofu](https://opentofu.org/docs/intro/install/) > 1.7
 - [Go](https://golang.org/doc/install) >= 1.21
 
 ## Building The Provider
