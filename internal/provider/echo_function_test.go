@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/tfversion"
 )
 
-func TestExampleFunction_Known(t *testing.T) {
+func TestEchoFunction_Known(t *testing.T) {
 	resource.UnitTest(t, resource.TestCase{
 		TerraformVersionChecks: []tfversion.TerraformVersionCheck{
 			//tfversion.SkipBelow(version.Must(version.NewVersion("1.8.0"))),
@@ -23,7 +23,7 @@ func TestExampleFunction_Known(t *testing.T) {
 			{
 				Config: `
 				output "test" {
-					value = provider::testfunctions::example("testvalue")
+					value = provider::testfunctions::echo("testvalue")
 				}
 				`,
 				Check: resource.ComposeAggregateTestCheckFunc(
@@ -34,7 +34,7 @@ func TestExampleFunction_Known(t *testing.T) {
 	})
 }
 
-func TestExampleFunction_Null(t *testing.T) {
+func TestEchoFunction_Null(t *testing.T) {
 	resource.UnitTest(t, resource.TestCase{
 		TerraformVersionChecks: []tfversion.TerraformVersionCheck{
 			//tfversion.SkipBelow(version.Must(version.NewVersion("1.8.0"))),
@@ -44,7 +44,7 @@ func TestExampleFunction_Null(t *testing.T) {
 			{
 				Config: `
 				output "test" {
-					value = provider::testfunctions::example(null)
+					value = provider::testfunctions::echo(null)
 				}
 				`,
 				// The parameter does not enable AllowNullValue
@@ -54,7 +54,7 @@ func TestExampleFunction_Null(t *testing.T) {
 	})
 }
 
-func TestExampleFunction_Unknown(t *testing.T) {
+func TestEchoFunction_Unknown(t *testing.T) {
 	resource.UnitTest(t, resource.TestCase{
 		TerraformVersionChecks: []tfversion.TerraformVersionCheck{
 			//tfversion.SkipBelow(version.Must(version.NewVersion("1.8.0"))),
@@ -68,7 +68,7 @@ func TestExampleFunction_Unknown(t *testing.T) {
 				}
 				
 				output "test" {
-					value = provider::testfunctions::example(terraform_data.test.output)
+					value = provider::testfunctions::echo(terraform_data.test.output)
 				}
 				`,
 				Check: resource.ComposeAggregateTestCheckFunc(
