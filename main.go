@@ -21,10 +21,6 @@ import (
 // ensure the documentation is formatted properly.
 //go:generate terraform fmt -recursive ./examples/
 
-// Run the docs generation tool, check its repository for more information on how it works and how docs
-// can be customized.
-//go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs generate -provider-name testfunctions
-
 var (
 	version string = "dev"
 )
@@ -36,7 +32,7 @@ func main() {
 	flag.Parse()
 
 	opts := providerserver.ServeOpts{
-		Address: "registry.terraform.io/opentofu/testfunctions",
+		Address: "registry.opentofu.org/opentofu/testfunctions",
 		Debug:   debug,
 	}
 
