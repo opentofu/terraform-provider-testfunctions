@@ -1,3 +1,3 @@
-provider "scaffolding" {
+provider "testfunctions" {
   # example configuration here
 }

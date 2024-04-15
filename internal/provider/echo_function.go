@@ -1,3 +1,5 @@
+// Copyright (c) The OpenTofu Authors
+// SPDX-License-Identifier: MPL-2.0
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
@@ -10,22 +12,22 @@ import (
 )
 
 var (
-	_ function.Function = ExampleFunction{}
+	_ function.Function = EchoFunction{}
 )
 
-func NewExampleFunction() function.Function {
-	return ExampleFunction{}
+func NewEchoFunction() function.Function {
+	return EchoFunction{}
 }
 
-type ExampleFunction struct{}
+type EchoFunction struct{}
 
-func (r ExampleFunction) Metadata(_ context.Context, req function.MetadataRequest, resp *function.MetadataResponse) {
-	resp.Name = "example"
+func (r EchoFunction) Metadata(_ context.Context, req function.MetadataRequest, resp *function.MetadataResponse) {
+	resp.Name = "echo"
 }
 
-func (r ExampleFunction) Definition(_ context.Context, _ function.DefinitionRequest, resp *function.DefinitionResponse) {
+func (r EchoFunction) Definition(_ context.Context, _ function.DefinitionRequest, resp *function.DefinitionResponse) {
 	resp.Definition = function.Definition{
-		Summary:             "Example function",
+		Summary:             "Echo function",
 		MarkdownDescription: "Echoes given argument as result",
 		Parameters: []function.Parameter{
 			function.StringParameter{
@@ -37,7 +39,7 @@ func (r ExampleFunction) Definition(_ context.Context, _ function.DefinitionRequ
 	}
 }
 
-func (r ExampleFunction) Run(ctx context.Context, req function.RunRequest, resp *function.RunResponse) {
+func (r EchoFunction) Run(ctx context.Context, req function.RunRequest, resp *function.RunResponse) {
 	var data string
 
 	resp.Error = function.ConcatFuncErrors(req.Arguments.Get(ctx, &data))

@@ -1,9 +1,10 @@
-# NOTE: This file is for HashiCorp specific licensing automation and can be deleted after creating a new repo with this template.
 schema_version = 1
 
 project {
   license        = "MPL-2.0"
   copyright_year = 2021
+
+  copyright_holder = "The OpenTofu Authors\nSPDX-License-Identifier: MPL-2.0\nCopyright (c) HashiCorp, Inc."
 
   header_ignore = [
     # examples used within documentation (prose)
